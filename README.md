@@ -1,2 +1,2 @@
-# SRS
-This document provides the System Requirements Specifications for the Turing Board.
+# System Requirements Specification
+This repository contains the .tex files for the System Requirements Specifications of the Turing Board.
