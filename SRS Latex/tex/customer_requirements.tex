@@ -23,3 +23,28 @@ Since the rider of the longboard will be going quite fast, the transmission of d
 Bluetooth 4.0/5.0 for maximum compatibility.
 \subsubsection{Priority}
 High
+
+\subsection{Computer Vision}
+\subsubsection{Description}
+The Turing Board utilizes an Intel RealSense Depth Camera D435. It has two that will be used for detecting objects to avoid and detecting a specific maker in its view to command the board to follow (see "Other" section for more information on this feature). The object detection is handled by Single Shot Detectors (SSDs). An SSD-MobileNet V2 model on a 91 class COCO dataset will be deployed.
+\subsubsection{Source}
+Sahaj Amatya & Sarker Nadir Afridi Azmi
+\subsubsection{Constraints}
+The pre-built library for the computer vision only works on x86 architecture. Since our controller, the NVIDIA Jetson TX 2, was built to work with Intel ARM architecture a kernel has been built to allow communication between the two. 
+Also, due to the nature of what the computer vision of the Turing Board will do, the Jetson TX 2 will need to use it's CUDA cores to process the input appropriately. For this reason, a kernel was also built for OpenCV. 
+\subsubsection{Standards}
+N/A
+\subsubsection{Priority}
+High
+
+\subsection{Path finding}
+\subsubsection{Description}
+The Turing Board will utilize a greedy best first search for its path finding algorithm. The board generates a trapezoidal trajectory map in front of it with progressive width equal to its own width plus some padding width. If an object is detected with the trajectory, the path finding algorithm will seek a path to avoid the object. 
+\subsubsection{Source}
+Sahaj Amatya \& Sarker Nadir Afridi Azmi
+\subsubsection{Constraints}
+The camera used on the board is able to only see up to 20ft ahead. This will need to be taken into consideration with considering how to best avoid an object.
+\subsubsection{Standards}
+N/A
+\subsubsection{Priority}
+High
