@@ -1,32 +1,50 @@
 Include a header paragraph specific to your product here. Customer requirements are those required features and functions specified for and by the intended audience for this product. This section establishes, clearly and concisely, the "look and feel" of the product, what each potential end-user should expect the product do and/or not do. Each requirement specified in this section is associated with a specific customer need that will be satisfied. In general Customer Requirements are the directly observable features and functions of the product that will be encountered by its users. Requirements specified in this section are created with, and must not be changed without, specific agreement of the intended customer/user/sponsor.
 
-\subsection{Requirement Name}
+\subsection{GPS}
 \subsubsection{Description}
-A detailed description of the feature/function that satisfies the requirement. For example: \textit{The GUI background will be slate blue. This specific color is required in order to ensure that the GUI matches other similar software products offered by the customer. Slate blue is specified as \#007FFF, using six-digit hexadecimal color specification.} It is acceptable and advisable to include drawings/graphics in the description if it aids understanding of the requirement.
+As part of the autonomous navigation system, the GPS would provide coordinate data which would allow the program to know the position of the longboard which would be used to draw vectors to aid with navigation to a target coordinate.
 \subsubsection{Source}
-The source of the requirement (e.g. customer, sponsor, specified team member (by name), federal regulation, local laws, CSE Senior Design project specifications, etc.)
+The GPS built into the phone will be used to get the current location of the longboard.
 \subsubsection{Constraints}
-A detailed description of realistic constraints relevant to this requirement. Economic, environmental, social, political, ethical, health \& safety, manufacturability, and sustainability should be discussed as appropriate.
+The GPS coordinates provided by the phone should be precise without jumping from one value to another too much.
 \subsubsection{Standards}
-A detailed description of any specific standards that apply to this requirement (e.g. \textit{NSTM standard xx.xxx.x. color specifications \cite{Rubin2012}}. Standards exist for practically everything (ATC standard fuses, IEEE 802.15.4 embedded wireless, TLS 1.3 encryption, etc.), so be sure that you research and document which ones will be followed in meeting this requirement.
+Conforms to the standard Global Positioning System.
 \subsubsection{Priority}
-The priority of this requirement relative to other specified requirements. Use the following priorities:
-\begin{itemize}
-\item Critical (must have or product is a failure)
-\item High (very important to customer acceptance, desirability)
-\item Moderate (should have for proper product functionality);
-\item Low (nice to have, will include if time/resource permits)
-\item Future (not feasible in this version of the product, but should be considered for a future release).
-\end{itemize}
+High
 
-\subsection{Requirement Name}
+\subsection{Remote}
 \subsubsection{Description}
-Detailed requirement description...
+Instead of having a separate remote, a free-to-download app will be made available which can be used to summon the board, enable the follow-me feature, and control the speed of the wheels. The app currently uses React as the framework of choice for the front-end and is hosted publicly on Netlify. It uses sockets for communication, but a better approach we found is Bluetooth which would make the process of data transfer very simple and easy. The app  will soon be changed to using React Native to support both Android and IOS. The reason for this is to ensure full compatibility without having to worry about browser versions.
 \subsubsection{Source}
-Source
+Native Android and IOS application making use of Bluetooth to communicate with the longboard.
 \subsubsection{Constraints}
-Detailed description of applicable constraints...
+Since the rider of the longboard will be going quite fast, the transmission of data needs to be reduced as much as possible. Latency should be minimized.
 \subsubsection{Standards}
-List of applicable standards
+Bluetooth 4.0/5.0 for maximum compatibility.
 \subsubsection{Priority}
-Priority
+High
+
+\subsection{Computer Vision}
+\subsubsection{Description}
+The Turing Board utilizes an Intel RealSense Depth Camera D435. It has two that will be used for detecting objects to avoid and detecting a specific maker in its view to command the board to follow (see "Other" section for more information on this feature). The object detection is handled by Single Shot Detectors (SSDs). An SSD-MobileNet V2 model on a 91 class COCO dataset will be deployed.
+\subsubsection{Source}
+Sahaj Amatya & Sarker Nadir Afridi Azmi
+\subsubsection{Constraints}
+The pre-built library for the computer vision only works on x86 architecture. Since our controller, the NVIDIA Jetson TX 2, was built to work with Intel ARM architecture a kernel has been built to allow communication between the two. 
+Also, due to the nature of what the computer vision of the Turing Board will do, the Jetson TX 2 will need to use it's CUDA cores to process the input appropriately. For this reason, a kernel was also built for OpenCV. 
+\subsubsection{Standards}
+N/A
+\subsubsection{Priority}
+High
+
+\subsection{Path finding}
+\subsubsection{Description}
+The Turing Board will utilize a greedy best first search for its path finding algorithm. The board generates a trapezoidal trajectory map in front of it with progressive width equal to its own width plus some padding width. If an object is detected with the trajectory, the path finding algorithm will seek a path to avoid the object. 
+\subsubsection{Source}
+Sahaj Amatya \& Sarker Nadir Afridi Azmi
+\subsubsection{Constraints}
+The camera used on the board is able to only see up to 20ft ahead. This will need to be taken into consideration with considering how to best avoid an object.
+\subsubsection{Standards}
+N/A
+\subsubsection{Priority}
+High
