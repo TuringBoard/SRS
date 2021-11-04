@@ -1,15 +1,37 @@
-This section highlights an overview of the Turing board's performance. More precisely, this section will explore task requirements. Further along in this section, each task requirement will be examined in details: its constraints, standards and priority.
+This section highlights an overview of the Turing Board's performance. At its heart, the Turing board should be able to follow a target user and it should be able to be summoned from a parking location. The board should be able to use computer vision, the turning mechanism and the propulsion mechanism to navigate. The board should also be able to function as a normal electric long-board when a user is on it. Throughout this section, each major performance requirement will be examined in detail, including its constraints, standards and priority.
 
-The Turing board should be able to follow a target user and it should be able to be summoned from a parking location. The board should be able to use computer vision, the turning mechanism and the propulsion mechanism to navigate. The board should also be able to function as a normal electric long-board when a user is on it.
+\subsection{Turning Angle}
+\subsubsection{Description}
+For our autonomous turning mechanism, the front wheels will only be able to turn with an angle of \±30$^{\circ}$ from the neutral position (0$^{\circ}$ A.K.A. facing forward).
+\subsubsection{Source}
+Car Technology Standards
+\subsubsection{Constraints}
+The turning angle should be constrained to \±30$^{\circ}$ to allow the board decent turning angles while not overextending and causing the board to topple over.
+\subsubsection{Standards}
+Based on research conducted when determining a maximum possible turning angle, the standard car has a turning angle of \±30$^{\circ}$ and this sounded like a good standard to build off of.
+\subsubsection{Priority}
+High
+
+\subsection{Limited Slip Differential}
+\subsubsection{Description}
+One feature we are looking to possibly include is a limited slip differential (LSD) to help with turning smoothly and efficiently in autonomous mode.
+\subsubsection{Source}
+Car Technology Standards
+\subsubsection{Constraints}
+Since the trucks of a longboard are designed as a single piece (mostly) with an embedded axle, we would only be able to implement this LSD on the rear, motor-driven wheels. Also, how the rear wheels are constructed makes a physical LSD impossible. Therefore we would code in an electronic LSD into the motor controls.
+\subsubsection{Standards}
+As stated above, the physical construction of the longboard trucks, front and rear, make it impossible to implement a physical LSD. An electronic LSD would simply use the motor controller to simulate an LSD by making the inner wheel spin slower (or the outer wheel spin faster) when turning, thus making turning smoother and sharper.
+\subsubsection{Priority}
+Low
 
 \subsection{Battery}
 \subsubsection{Description}
-A 2500 KW hour, 24 V battery will provide power to the entire system. For the preliminary design, the voltage will be stepped down using a Buck Converter providing ~19V to the Jetson TX2. There will be an open 5V and 3.3V terminal if there is a need to connect external power to sensors and microcontrollers.
+A 288Wh, 8000mAh, 36 V battery will provide power to the entire system. For the preliminary design, the voltage will be stepped down using a Buck Converter providing ~19V to the Jetson TX2. There will be an open 5V and 3.3V terminal if there is a need to connect external power to sensors and microcontrollers.
 \subsubsection{Source}
 Specified by the team member (Sarker Nadir Afridi Azmi)
 \subsubsection{Constraints}
-The power used by the entire system should be minimized to ensure the the longboard can operate for at least an hour with a rider before it needs to be charged.
+The power used by the entire system should be minimized to ensure the the longboard can operate for at least an hour or two with a rider before it needs to be charged.
 \subsubsection{Standards}
-2500 KWh
+288Wh, 8000mAh, 36 V
 \subsubsection{Priority}
 High
