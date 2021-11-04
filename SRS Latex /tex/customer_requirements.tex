@@ -1,0 +1,53 @@
+Include a header paragraph specific to your product here. Customer requirements are those required features and functions specified for and by the intended audience for this product. This section establishes, clearly and concisely, the "look and feel" of the product, what each potential end-user should expect the product do and/or not do. Each requirement specified in this section is associated with a specific customer need that will be satisfied. In general Customer Requirements are the directly observable features and functions of the product that will be encountered by its users. Requirements specified in this section are created with, and must not be changed without, specific agreement of the intended customer/user/sponsor.
+
+\subsection{GPS}
+\subsubsection{Description}
+As part of the autonomous navigation system, the GPS would provide coordinate data which would allow the program to know the position of the longboard which would be used to draw vectors to aid with navigation to a target coordinate.
+\subsubsection{Source}
+The GPS built into the phone will be used to get the current location of the longboard.
+\subsubsection{Constraints}
+The GPS coordinates provided by the phone should be precise without jumping from one value to another too much.
+\subsubsection{Standards}
+Conforms to the standard Global Positioning System.
+\subsubsection{Priority}
+High
+
+\subsection{Remote}
+\subsubsection{Description}
+Instead of having a separate remote, a free-to-download app will be made available which can be used to summon the board, enable the follow-me feature, and control the speed of the wheels. The app currently uses React as the framework of choice for the front-end and is hosted publicly on Netlify. It uses sockets for communication, but a better approach we found is Bluetooth which would make the process of data transfer very simple and easy. The app  will soon be changed to using React Native to support both Android and IOS. The reason for this is to ensure full compatibility without having to worry about browser versions.
+\subsubsection{Source}
+Native Android and IOS application making use of Bluetooth to communicate with the longboard.
+\subsubsection{Constraints}
+Since the rider of the longboard will be going quite fast, the transmission of data needs to be reduced as much as possible. Latency should be minimized.
+\subsubsection{Standards}
+Bluetooth 4.0/5.0 for maximum compatibility.
+\subsubsection{Priority}
+High
+\subsection{Turning mechanism}
+\subsubsection{Description}
+The Turing board has a turning mechanism that will be utilized during autonomous mode. Normally, to turn a normal long-board, the user must lean toward the side they want to turn towards. To mitigate and simplify the turning mechanism for the Turing board during autonomous mode, we decided to have a rotating front truck, controlled by a stepper motor and a gear box. The turning mechanism has an inclusive rotation range of -45 to 45 degrees, with 0 degrees being the universal normal front truck position. When the Turing board is in user mode, the turning mechanism rotated back and is locked at 0 degrees, using solenoids, and the user is in charge of turning the board by leaning toward the desired side, like on normal long-boards. 
+\subsubsection{Source}
+Specifics and mechanics of the turning mechanism were specified by team members.\hfill \break
+Gear box 3D printed by team member Keaton Koehler.\hfill \break
+Stepper motor ordered online.
+\subsubsection{Constraints}
+The turning mechanism has a turning range of 90 degrees. With 0 degrees being the origin, the range of this mechanism will be 45 degrees in either directions.
+\subsubsection{Standards}
+An inclusive turning range of -45 to 45 degrees
+\subsubsection{Priority}
+High
+\subsection{Weight sensor}
+\subsubsection{Description}
+The Weight sensor's main role is to determine if a user, a small load or nothing is on top of the Turing board. With the provided information from the sensor, the appropriate mode will be set. If a user is on the Turing board, then the autonomous mode will be disengaged. This means the turning mechanism will be rotated and locked at 0 degrees. In any other case, a small load or nothing on the Turing board, then the autonomous mode can be engaged if it is needed. 
+\subsubsection{Source}
+The role and mechanics of the weight sensor were specified by the team. \hfill \break 
+The sensor will be ordered online.
+\subsubsection{Constraints}
+For small loads, we will have a maximum weight to never exceed. If exceeded, the Turing board will consider it as a person and the autonomous mode will be disengaged. \hfill \break
+For user weight sensing, we will set a minimum weight to always exceed in order for the autonomous mode to be disengaged.
+\subsubsection{Standards}
+0 kg to Turing board's weight - considered "no load" \hfill \break
+Turing board's weight to 23 kg (50lbs) - considered "a small load" \hfill \break
+23 kg (50lbs) upwards - considered "a person"
+\subsubsection{Priority}
+Critical
