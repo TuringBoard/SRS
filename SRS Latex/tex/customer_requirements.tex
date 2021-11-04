@@ -11,6 +11,34 @@ The forward propulsion system must use a control loop that takes environmental f
 Conforms to the Texas state motor-assisted scooter laws.
 \subsubsection{Priority}
 Critical
+\subsection{Turning mechanism}
+\subsubsection{Description}
+The Turing board has a turning mechanism that will be utilized during autonomous mode. Normally, to turn a normal long-board, the user must lean toward the side they want to turn towards. To mitigate and simplify the turning mechanism for the Turing board during autonomous mode, we decided to have a rotating front truck, controlled by a stepper motor and a gear box. The turning mechanism has an inclusive rotation range of -45 to 45 degrees, with 0 degrees being the universal normal front truck position. When the Turing board is in user mode, the turning mechanism rotated back and is locked at 0 degrees, using solenoids, and the user is in charge of turning the board by leaning toward the desired side, like on normal long-boards. 
+\subsubsection{Source}
+Specifics and mechanics of the turning mechanism were specified by team members.\hfill \break
+Gear box 3D printed by team member Keaton Koehler.\hfill \break
+Stepper motor ordered online.
+\subsubsection{Constraints}
+The turning mechanism has a turning range of 90 degrees. With 0 degrees being the origin, the range of this mechanism will be 45 degrees in either directions.
+\subsubsection{Standards}
+An inclusive turning range of -45 to 45 degrees
+\subsubsection{Priority}
+Critical
+\subsection{Weight sensor}
+\subsubsection{Description}
+The Weight sensor's main role is to determine if a user, a small load or nothing is on top of the Turing board. With the provided information from the sensor, the appropriate mode will be set. If a user is on the Turing board, then the autonomous mode will be disengaged. This means the turning mechanism will be rotated and locked at 0 degrees. In any other case, a small load or nothing on the Turing board, then the autonomous mode can be engaged if it is needed. 
+\subsubsection{Source}
+The role and mechanics of the weight sensor were specified by the team. \hfill \break 
+The sensor will be ordered online.
+\subsubsection{Constraints}
+For small loads, we will have a maximum weight to never exceed. If exceeded, the Turing board will consider it as a person and the autonomous mode will be disengaged. \hfill \break
+For user weight sensing, we will set a minimum weight to always exceed in order for the autonomous mode to be disengaged.
+\subsubsection{Standards}
+0 kg to Turing board's weight - considered "no load" \hfill \break
+Turing board's weight to 23 kg (50lbs) - considered "a small load" \hfill \break
+23 kg (50lbs) upwards - considered "a person"
+\subsubsection{Priority}
+Critical
 
 \subsection{GPS}
 \subsubsection{Description}
