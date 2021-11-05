@@ -1,13 +1,38 @@
-In this last section, you will reiterate all requirements that are listed as priority 5. This is repetitive, but necessary as a concise statement of features/functions that were considered/discussed and documented herein, but will NOT be addressed in the prototype version of the product due to constraints of budget, time, skills, technology, feasibility analysis, etc. Use the following format for this section.
+Due to the limited amount of time we have to produce the Turing Board, not all requested requirements will be able to be implemented. In this section are the requirements that could be added on to the board at a later time to improve its quality.
 
-\subsection{Requirement Name}
+\subsection{Weather Proof Casing}
 \subsubsection{Description}
-Detailed requirement description...
+A water-proof case is needed to protect the sensitive electronic components of the Turing board from environmental conditions. In addition to keeping out moisture the case will act as a barrier from any debris that could cause damage while the board is at high speeds (rocks, sticks, etc).
 \subsubsection{Source}
-Source
+This requirement is from the hardware engineers.
 \subsubsection{Constraints}
-Detailed description of applicable constraints...
+The profile of the container must be slim enough to not touch the ground while the board is turning. The case must be strong enough to withstand limited physical stress. A rubber gasket or seal is necessary to prevent liquid from touching the sensitive equipment.
 \subsubsection{Standards}
-List of applicable standards
+N/A
 \subsubsection{Priority}
-Priority
+Future
+
+\subsection{Alarm or Buzzer for Improper Use}
+\subsubsection{Description}
+The Turing Board's autonomous capabilities are not intended for use with a rider on the long board. A weight sensor will trigger a buzzer to sound if the user attempts to ride while under autonomous operations or if a change in weight is detected while the turning mechanism is engaged.
+\subsubsection{Source}
+This requirement is from both the hardware and software engineers.
+\subsubsection{Constraints}
+The buzzer will need to be loud enough to catch the attention of the user despite environmental distractions.
+\subsubsection{Standards}
+No standards were used.
+\subsubsection{Priority}
+Future
+
+\subsection{Board Response to Accidents}
+\subsubsection{Description}
+The Turing Board's response to an accident is necessary. In the regretful case a user should fall off the board, the board must take the appropriate measures to make the user's life easier and keep bystanders safe. There are two main response expected if a user falls off the board. If the user falls of the board and the Turing Board is still in the user's vicinity, then the moment the sensor reading changes from "user weight" to "no weight", the Turing Board stops. This same mechanism applies in the case the user falls off and lands far away from the board. In these events, the board should autonomously find its way back to the user.
+\subsubsection{Source}
+These responses were specified by the group.
+\subsubsection{Constraints}
+The board must have a reliable weight sensor that will always return the right weight. A faulty reading could cause an accident itself by suddenly stopping the board.
+\subsubsection{Standards}
+If the Turing board is within 3 meters of the user after the user falls off, the board will automatically stop.\hfill \break
+If the Turing board is outside of a 3 meters parameter of the user after an accident and emergency stop, the board must autonomously roll back to its user. 
+\subsubsection{Priority}
+Future
