@@ -1,4 +1,4 @@
-This section highlights an overview of the Turing Board's performance. At its heart, the Turing board should be able to follow a target user and it should be able to be summoned from a parking location. The board should be able to use computer vision, the turning mechanism and the propulsion mechanism to navigate. The board should also be able to function as a normal electric long-board when a user is on it. Throughout this section, each major performance requirement will be examined in detail, including its constraints, standards and priority.
+The Turing board should be able to follow a target user and it should be able to be summoned from a parking location. The board should be able to use computer vision, the turning mechanism and the propulsion mechanism to navigate. The board should also be able to function as a normal electric long-board when a user is on it. Throughout this section, each major performance requirement will be examined in detail, including its constraints, standards and priority.
 
 \subsection{Turning Angle}
 \subsubsection{Description}
@@ -8,17 +8,17 @@ Kendall Buchanan (Runtime Terrors)
 \subsubsection{Constraints}
 The turning angle should be constrained to \±30$^{\circ}$ to allow the board decent turning angles while not overextending and causing the board to topple over.
 \subsubsection{Standards}
-Based on research conducted when determining a maximum possible turning angle, the standard car has a turning angle of \±30$^{\circ}$ and this sounded like a good standard to build off of.
+Based on research conducted when determining a maximum possible turning angle, the standard car has a turning angle of \±30$^{\circ}$.
 \subsubsection{Priority}
 High
 
 \subsection{Limited Slip Differential}
 \subsubsection{Description}
-One feature we are looking to possibly include is a limited slip differential (LSD) to help with turning smoothly and efficiently in autonomous mode.
+A limited slip differential (LSD) to help with turning smoothly and efficiently in autonomous mode.
 \subsubsection{Source}
 Happy Ndikumana (Runtime Terrors)
 \subsubsection{Constraints}
-Since the trucks of a longboard are designed as a single piece (mostly) with an embedded axle, we would only be able to implement this LSD on the rear, motor-driven wheels. Also, how the rear wheels are constructed makes a physical LSD impossible. Therefore we would code in an electronic LSD into the motor controls.
+Since the trucks of a longboard are designed as a single piece (mostly) with an embedded axle, it is only be able to implement this LSD on the rear, motor-driven wheels. Also, how the rear wheels are constructed makes a physical LSD impossible. Therefore an electronic LSD will be coded into the motor controls.
 \subsubsection{Standards}
 As stated above, the physical construction of the longboard trucks, front and rear, make it impossible to implement a physical LSD. An electronic LSD would simply use the motor controller to simulate an LSD by making the inner wheel spin slower (or the outer wheel spin faster) when turning, thus making turning smoother and sharper.
 \subsubsection{Priority}
