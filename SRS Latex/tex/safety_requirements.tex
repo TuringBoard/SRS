@@ -1,4 +1,4 @@
-Include a header paragraph specific to your product here. Safety requirements might address items specific to your product such as: no exposure to toxic chemicals; lack of sharp edges that could harm a user; no breakable glass in the enclosure; no direct eye exposure to infrared/laser beams; packaging/grounding of electrical connections to avoid shock; etc.
+The Turing Board is a scientific achievement combining the power of electricity, the ingenuity of longboarding, and the innovation of autonomous machine learning. This, however, also comes with a slew of safety concerns and features to be followed closely. The longboard must be kept in a dry place of a nominal temperature. Do not use around heavy machinery or vehicles. Do not use in the vicinity of sheer drops or falls. Do not use around children. Must be age 18+ to use. A helmet MUST BE WORN AT ALL TIMES. Recommended only for use by experienced boarders. 
 
 \subsection{Laboratory equipment lockout/tagout (LOTO) procedures}
 \subsubsection{Description}
@@ -33,5 +33,54 @@ CSE Senior Design laboratory policy
 Collaborative robotic manipulators will be preferred over non-collaborative units in order to minimize potential hazards. Sourcing and use of any required safety interlock mechanisms will be the responsibility of the engineering team.
 \subsubsection{Standards}
 ANSI/RIA R15.06-2012 American National Standard for Industrial Robots and Robot Systems, RIA TR15.606-2016 Collaborative Robots
+\subsubsection{Priority}
+Critical
+
+\subsection{Weather Proof Casing}
+\subsubsection{Description}
+A water-proof case is needed to protect the sensitive electronic components of the Turing board from environmental conditions. In addition to keeping out moisture the case will act as a barrier from any debris that could cause damage while the board is at high speeds (rocks, sticks, etc).
+\subsubsection{Source}
+This requirement is from the hardware engineers.
+\subsubsection{Constraints}
+The profile of the container must be slim enough to not touch the ground while the board is turning. The case must be strong enough to withstand limited physical stress. A rubber gasket or seal is necessary to prevent liquid from touching the sensitive equipment.
+\subsubsection{Standards}
+No standards were used.
+\subsubsection{Priority}
+High
+
+\subsection{Alarm or Buzzer for Improper Use}
+\subsubsection{Description}
+The Turing Board's autonomous capabilities are not intended for use with a rider on the long board. A weight sensor will trigger a buzzer to sound if the user attempts to ride while under autonomous operations or if a change in weight is detected while the turning mechanism is engaged.
+\subsubsection{Source}
+This requirement is from both the hardware and software engineers.
+\subsubsection{Constraints}
+The buzzer will need to be loud enough to catch the attention of the user despite environmental distractions.
+\subsubsection{Standards}
+No standards were used.
+\subsubsection{Priority}
+Low
+
+\subsection{Board Response to Accidents}
+\subsubsection{Description}
+The Turing Board's response to an accident is necessary. In the regretful case a user should fall off the board, the board must take the appropriate measures to make the user's life easier and keep bystanders safe. There are two main response expected if a user falls off the board. If the user falls of the board and the Turing Board is still in the user's vicinity, then the moment the sensor reading changes from "user weight" to "no weight", the Turing Board stops. This same mechanism applies in the case the user falls off and lands far away from the board. In these events, the board should autonomously find its way back to the user.
+\subsubsection{Source}
+These responses were specified by the group.
+\subsubsection{Constraints}
+The board must have a reliable weight sensor that will always return the right weight. A faulty reading could cause an accident itself by suddenly stopping the board.
+\subsubsection{Standards}
+If the Turing board is within 3 meters of the user after the user falls off, the board will automatically stop.\hfill \break
+If the Turing board is outside of a 3 meters parameter of the user after an accident and emergency stop, the board must autonomously roll back to its user. 
+\subsubsection{Priority}
+Low
+
+\subsection{Mode Switch}
+\subsubsection{Description}
+The role of the mode switch is to disengage autonomous mode. With the help of the weight sensor, it will be determined if a user, a small load or nothing is on top of the board. When a user is on the Turing board, we must prioritize their safety. The way we will do this is by disengaging autonomous mode and making sure the turning mechanism is locked at 0 degrees. This will ensure the Turing board can be operated as a normal electric long-board and prevent any accidents that could be caused by a misaligned front truck. 
+\subsubsection{Source}
+The role and mechanics of the mode switch were specified by the team.
+\subsubsection{Constraints}
+When a set weight is exceeded, meaning a user is on the board, autonomous mode will be disengaged and the turning mechanism will be rotated and locked at 0 degrees for the user's safety.
+\subsubsection{Standards}
+If a weight greater than 23 kg (50 lbs) is detected, the "mode switch" will be triggered. It will disengage autonomous mode, rotate the trucks back to 0 degrees and the trucks will be locked at that position using solenoids.
 \subsubsection{Priority}
 Critical
